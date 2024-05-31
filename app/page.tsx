@@ -1,11 +1,20 @@
+import { redirect } from "next/navigation";
 import AuthButton from "@/components/AuthButton";
 import Footer from "@/components/Footer";
 import { createClient } from "@/utils/supabase/server";
 
 export default async function Index() {
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    return redirect("/dashboard");
+  }
+
   const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
     try {
       createClient();
       return true;
