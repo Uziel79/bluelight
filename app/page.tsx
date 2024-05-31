@@ -1,4 +1,5 @@
-import AuthButton from "../components/AuthButton";
+import AuthButton from "@/components/AuthButton";
+import Footer from "@/components/Footer";
 import { createClient } from "@/utils/supabase/server";
 
 export default async function Index() {
@@ -29,11 +30,7 @@ export default async function Index() {
         </main>
       </div>
 
-      <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
-        <p>
-          TODOAPP
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
