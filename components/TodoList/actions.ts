@@ -8,6 +8,12 @@ interface AddTodo {
   color: string | null | undefined;
 }
 
+interface Task extends AddTodo {
+  id?: string;
+  user_id: string | null | undefined;
+  is_complete: boolean | null | undefined;
+}
+
 interface SaveTodo {
   id: string;
   title: string;
@@ -25,7 +31,7 @@ interface InsertResponse {
 }
 
 interface Todo {
-  id: string;
+  id?: string;
   title: string;
   task: string;
   user_id: string | null | undefined;
@@ -41,7 +47,7 @@ export async function addTodo({ title, task: description, color }: AddTodo) {
   } = await supabase.auth.getUser();
 
   if (title && description.trim().length) {
-    let task = { id: '', title, task: description, user_id: color ? user?.id : null, color, is_complete: false };
+    let task: Task = { title, task: description, user_id: color ? user?.id : null, color, is_complete: false };
     let { data, error } = await supabase
       .from('todos')
       .insert(task)
