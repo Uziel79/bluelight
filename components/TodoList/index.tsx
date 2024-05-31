@@ -110,7 +110,7 @@ export default function TodoList({ initialTodos }: { initialTodos: TODO[] }) {
         {editing ? 'Save' : 'Add'}
       </button>
       <ul className="list-none pl-0">
-        {todos.map((todo) => (
+        {todos.length > 0 ? todos.map((todo) => (
           <li key={todo.id} className={`mb-2 p-4 ${todo.color ? `bg-[${todo.color}]` : 'bg-neutral-900'} rounded-lg border border-neutral-800`}>
             <span className="text-lg text-white font-bold block mb-2">
               {todo.title}
@@ -124,7 +124,13 @@ export default function TodoList({ initialTodos }: { initialTodos: TODO[] }) {
               <button onClick={() => handleDeleteTodo(todo.id)} className="py-1 px-4 bg-red-500 text-white rounded">Delete</button>
             </div>
           </li>
-        ))}
+        )) : (
+          <li className='mb-2 p-4 bg-neutral-900 rounded-lg border border-neutral-800'>
+            <p className="text-white text-center text-lg font-bold block">
+              No tasks
+            </p>
+          </li>
+        )}
       </ul>
     </div>
   );
