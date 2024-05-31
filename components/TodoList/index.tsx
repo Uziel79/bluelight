@@ -111,7 +111,7 @@ export default function TodoList({ initialTodos }: { initialTodos: TODO[] }) {
       </button>
       <ul className="list-none pl-0">
         {todos.length > 0 ? todos.map((todo) => (
-          <li key={todo.id} className={`mb-2 p-4 ${todo.color ? `bg-[${todo.color}]` : 'bg-neutral-900'} rounded-lg border border-neutral-800`}>
+          <li key={todo.id} className={`mb-2 p-4 ${todo.color ? '' : 'bg-neutral-900'} rounded-lg border border-neutral-800`} style={todo.color ? {backgroundColor: todo.color} : {}}>
             <span className="text-lg text-white font-bold block mb-2">
               {todo.title}
             </span>
