@@ -117,11 +117,11 @@ export default function TodoList({ initialTodos }: { initialTodos: TODO[] }) {
             </span>
             <p className="mb-2 text-white">{todo.task}</p>
             <div className="flex space-x-2">
-            <button onClick={() => todo.id && handleToggleComplete(todo.id)} className={`py-1 px-4 text-white rounded ${todo.is_complete ? 'bg-green-500' : 'bg-gray-500'}`}>
+            <button onClick={() => todo.id && handleToggleComplete(todo.id)} className={`py-1 px-4 border border-neutral-800 text-white rounded ${todo.is_complete ? 'bg-green-500' : 'bg-neutral-700'}`}>
               {todo.is_complete ? 'Completed' : 'Mark as Complete'}
             </button>
-              <button onClick={() => todo.id && handleEditTodo(todo.id)} className="py-1 px-4 bg-yellow-500 text-white rounded">Edit</button>
-              <button onClick={() => todo.id && handleDeleteTodo(todo.id)} className="py-1 px-4 bg-red-500 text-white rounded">Delete</button>
+              <button onClick={() => todo.id && handleEditTodo(todo.id)} className="py-1 px-4 border border-neutral-800 bg-neutral-900 text-white rounded">Edit</button>
+              <button onClick={() => todo.id && handleDeleteTodo(todo.id)} className="py-1 px-4 border border-neutral-800 bg-neutral-900 text-white rounded">Delete</button>
             </div>
           </li>
         )) : (
